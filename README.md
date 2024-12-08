@@ -63,8 +63,7 @@ In advanced stages, the focus shifts to improving query performance. Some optimi
 - **Query Execution Plan**: Using `EXPLAIN ANALYZE` to review and refine query performance.
   
 ---
-
-### Exploratory Data Analysis (EDA)
+## Exploratory Data Analysis (EDA)
 ```sql
 SELECT COUNT(*) FROM spotify;
 
