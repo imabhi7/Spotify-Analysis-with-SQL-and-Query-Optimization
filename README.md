@@ -61,8 +61,7 @@ After the data is inserted, various SQL queries can be written to explore and an
 In advanced stages, the focus shifts to improving query performance. Some optimization strategies include:
 - **Indexing**: Adding indexes on frequently queried columns.
 - **Query Execution Plan**: Using `EXPLAIN ANALYZE` to review and refine query performance.
-  
----
+
 ## Exploratory Data Analysis (EDA)
 ```sql
 SELECT COUNT(*) FROM spotify;
@@ -81,42 +80,37 @@ WHERE duration_min = 0;
 
 SELECT DISTINCT channel FROM spotify;
 ```
----
-## 15 Practice Questions.
 
-### Easy Level
+## Basic Data Analysis
 1. Retrieve the names of all tracks that have more than 1 billion streams.
 ```sql
-SELECT * FROM SPOTIFY
-WHERE STREAM > 1000000000;
+SELECT * FROM spotify
+WHERE stream > 1000000000;
 ```
 2. List all albums along with their respective artists.
 ```sql
-SELECT
-	DISTINCT ALBUM, ARTIST
-FROM SPOTIFY
+SELECT DISTINCT album, artist
+FROM spotify
 ORDER BY 1;
 ```
 3. Get the total number of comments for tracks where `licensed = TRUE`.
 ```sql
 SELECT
-	SUM(COMMENTS) AS TOTAL_COMMENTS
-FROM SPOTIFY
-WHERE LICENSED = 'TRUE';
+	SUM(comments) AS total_comments
+FROM spotify
+WHERE licensed = 'true';
 ```
 4. Find all tracks that belong to the album type `single`.
 ```sql
-SELECT * FROM SPOTIFY
-WHERE ALBUM_TYPE = 'SINGLE';
+SELECT * FROM spotify
+WHERE album_type = 'single';
 ```
 5. Count the total number of tracks by each artist.
 ```sql
 SELECT 
-	ARTIST,
-	COUNT(*) AS TOTAL_SONGS
-	FROM SPOTIFY
-GROUP BY ARTIST
-ORDER BY 2;
+	artist, COUNT (*) as totat_number_of_tracks
+FROM spotify
+GROUP BY artist;
 ```
 ### Medium Level
 1. Calculate the average danceability of tracks in each album.
