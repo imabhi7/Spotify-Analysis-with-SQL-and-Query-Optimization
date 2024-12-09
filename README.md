@@ -48,10 +48,6 @@ Understanding the dataset is the first step toward effective analysis. The datas
   - **`Energy`**: Intensity and activity level of the track.
   - **`Loudness`**, **`Tempo`**, and more.
 
-Familiarizing yourself with these attributes helps in identifying trends and insights.
-
----
-
 ### 2. Querying the Data
 Once the data is inserted into the database, queries are written to explore and analyze the dataset. These queries are divided into levels based on complexity:
 
@@ -74,22 +70,15 @@ Once the data is inserted into the database, queries are written to explore and 
   - **Window Functions** for calculations across a set of rows.
   - **Common Table Expressions (CTEs)** for breaking down complex queries.
 
----
-
 ### 3. Query Optimization
 Analyzing large datasets efficiently requires optimizing SQL queries. Key strategies include:
 
 #### **Indexing**
 - Add indexes on frequently queried columns to reduce query execution time.
-- Example:
-	```sql
-  	CREATE INDEX artist_index ON spotify(artist);
-	```
+
 #### Using Execution Plans
 - Utilize **`EXPLAIN ANALYZE`** to understand how the database processes a query.
-  
 - Review the output to identify bottlenecks and improve performance.
-
 
 ## Exploratory Data Analysis (EDA)
 ```sql
