@@ -257,49 +257,46 @@ FROM
     spotify;
 ```
 
-## Query Optimization Technique 
+## Query Optimization Technique
 
-To improve query performance, we carried out the following optimization process:
+To enhance the performance of SQL queries in the Spotify dataset, we implemented the following optimization process:
 
-- **Initial Query Performance Analysis Using `EXPLAIN`**
-    - We began by analyzing the performance of a query using the `EXPLAIN` function.
-    - The query retrieved tracks based on the `artist` column, and the performance metrics were as follows:
-        - Execution time (E.T.): **6.077ms**
-        - Planning time (P.T.): **0.119ms**
-    - Below is the **screenshot** of the `EXPLAIN` result before optimization:
-      ![EXPLAIN Before Index](Explain_before_index.png)
+### 1. Initial Query Performance Analysis Using `EXPLAIN`
+- The performance of a query retrieving tracks based on the `artist` column was analyzed using the `EXPLAIN` function.  
+- **Initial performance metrics**:
+  - **Execution Time (E.T.):** 6.077 ms  
+  - **Planning Time (P.T.):** 0.119 ms  
+- Below is the result of the query analysis before optimization:  
+  ![EXPLAIN Before Index](Explain_before_index.png)
 
-- **Index Creation on the `artist` Column**
-    - To optimize the query performance, we created an index on the `artist` column. This ensures faster retrieval of rows where the artist is queried.
-    - **SQL command** for creating the index:
-      ```sql
-      CREATE INDEX artist_index ON spotify(artist);
-      ```
+### 2. Optimization via Indexing
+- To improve query performance, we **created an index** on the `artist` column.  
+- **Why indexing?**  
+  Indexes accelerate data retrieval by creating a reference structure, making it quicker to locate rows based on indexed columns.  
+- **SQL Command**:
+  	```sql
+  	CREATE INDEX artist_index ON spotify(artist);
+	```
 
-- **Performance Analysis After Index Creation**
-    - After creating the index, we ran the same query again and observed significant improvements in performance:
-        - Execution time (E.T.): **0.69ms**
-        - Planning time (P.T.): **0.14ms**
-    - Below is the **screenshot** of the `EXPLAIN` result after index creation:
-      ![EXPLAIN After Index](Explain_after_index.png)
+### 3. Performance After Index Creation
+After indexing, the query was executed again, yielding significantly improved performance:
 
-- **Graphical Performance Comparison**
-    - A graph illustrating the comparison between the initial query execution time and the optimized query execution time after index creation.
-    - **Graph view** shows the significant drop in both execution and planning times:
-      ![Performance Graph](Analysis_after_index.png)
-      ![Performance Graph](Graphical_view_before_index.png)
-      ![Performance Graph](Graphical_view_after_index.png)
+- **Execution Time (E.T.):** 0.69 ms  
+- **Planning Time (P.T.):** 0.14 ms  
 
-This optimization shows how indexing can drastically reduce query time, improving the overall performance of our database operations in the Spotify project.
+Below is the `EXPLAIN` result after optimization:  
+![EXPLAIN After Index](Explain_after_index.png)
 
-## Tech Stack
-- **Database**: PostgreSQL
-- **SQL Queries**: DDL, DML, Aggregations, Joins, Subqueries, Window Functions
-- **Tools**: pgAdmin 4, PostgreSQL
+### 4. Graphical Comparison of Query Performance
+The graph below compares the query performance before and after indexing, clearly illustrating the substantial drop in execution and planning times:
 
-## How to Run the Project
-1. Install PostgreSQL and pgAdmin (if not already installed).
-2. Set up the database schema and tables using the provided normalization structure.
-3. Insert the sample data into the respective tables.
-4. Execute SQL queries to solve the listed problems.
-5. Explore query optimization techniques for large datasets.
+- **Performance Before Indexing:**  
+  ![Performance Before Indexing](Graphical_view_before_index.png)
+
+- **Performance After Indexing:**  
+  ![Performance After Indexing](Graphical_view_after_index.png)
+
+**This optimization shows how indexing can drastically reduce query time, improving the overall performance of our database operations in the Spotify project.**
+
+## Conclusion
+This project highlights the power of **SQL** in analyzing large datasets and emphasizes the importance of **query optimization techniques** in improving performance. By applying SQL to analyze Spotify data, we derived valuable insights about tracks, albums, and artists. Moreover, the optimization process demonstrated how indexing can significantly enhance query performance, enabling faster data retrieval and more efficient database operations. Overall, this analysis showcases the practical application of SQL in real-world data-driven tasks and the critical role of query optimization in handling large-scale datasets.
