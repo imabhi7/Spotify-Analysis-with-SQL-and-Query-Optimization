@@ -296,7 +296,5 @@ The graph below compares the query performance before and after indexing, clearl
 - **Performance After Indexing:**  
   ![Performance After Indexing](Graphical_view_after_index.png)
 
-**This optimization shows how indexing can drastically reduce query time, improving the overall performance of our database operations in the Spotify project.**
-
 ## Conclusion
 This project highlights the power of **SQL** in analyzing large datasets and emphasizes the importance of **query optimization techniques** in improving performance. By applying SQL to analyze Spotify data, we derived valuable insights about tracks, albums, and artists. Moreover, the optimization process demonstrated how indexing can significantly enhance query performance, enabling faster data retrieval and more efficient database operations. Overall, this analysis showcases the practical application of SQL in real-world data-driven tasks and the critical role of query optimization in handling large-scale datasets.
