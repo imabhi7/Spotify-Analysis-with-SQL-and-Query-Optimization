@@ -234,17 +234,49 @@ FROM
     spotify;
 ```
 
+## Query Optimization Technique 
 
+To improve query performance, we carried out the following optimization process:
 
+- **Initial Query Performance Analysis Using `EXPLAIN`**
+    - We began by analyzing the performance of a query using the `EXPLAIN` function.
+    - The query retrieved tracks based on the `artist` column, and the performance metrics were as follows:
+        - Execution time (E.T.): **6.077ms**
+        - Planning time (P.T.): **0.119ms**
+    - Below is the **screenshot** of the `EXPLAIN` result before optimization:
+      ![EXPLAIN Before Index](Explain_before_index.png)
 
+- **Index Creation on the `artist` Column**
+    - To optimize the query performance, we created an index on the `artist` column. This ensures faster retrieval of rows where the artist is queried.
+    - **SQL command** for creating the index:
+      ```sql
+      CREATE INDEX idx_artist ON spotify_tracks(artist);
+      ```
 
+- **Performance Analysis After Index Creation**
+    - After creating the index, we ran the same query again and observed significant improvements in performance:
+        - Execution time (E.T.): **0.69ms**
+        - Planning time (P.T.): **0.14ms**
+    - Below is the **screenshot** of the `EXPLAIN` result after index creation:
+      ![EXPLAIN After Index](Explain_after_index.png)
 
+- **Graphical Performance Comparison**
+    - A graph illustrating the comparison between the initial query execution time and the optimized query execution time after index creation.
+    - **Graph view** shows the significant drop in both execution and planning times:
+      ![Performance Graph](Analysis_after_index.png)
+      ![Performance Graph](Graphical_view_before_index.png)
+      ![Performance Graph](Graphical_view_after_index.png)
 
+This optimization shows how indexing can drastically reduce query time, improving the overall performance of our database operations in the Spotify project.
 
+## Tech Stack
+- **Database**: PostgreSQL
+- **SQL Queries**: DDL, DML, Aggregations, Joins, Subqueries, Window Functions
+- **Tools**: pgAdmin 4, PostgreSQL
 
-
-
-
-
-
-
+## How to Run the Project
+1. Install PostgreSQL and pgAdmin (if not already installed).
+2. Set up the database schema and tables using the provided normalization structure.
+3. Insert the sample data into the respective tables.
+4. Execute SQL queries to solve the listed problems.
+5. Explore query optimization techniques for large datasets.
